@@ -1,0 +1,18 @@
+{% extends 'dummy.html' %}
+
+{% block title  %}
+    <title>Delete confirm</title>
+{% endblock %}
+
+{% block body_block %}
+
+<center>
+    <h2> Are you sure to delete all the history </h2>
+    <form method="POST" action="{% url 'delete_history' %}">
+        {% csrf_token %}
+        <input type="submit" value="Yes Delete !" class="btn btn-danger">
+        <a href="{% url 'history' %}" class="btn btn-dark">No, Go back</a>
+    </form>
+</center>
+
+{% endblock %}

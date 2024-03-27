@@ -1,0 +1,71 @@
+{% extends 'dummy.html' %}
+
+
+{% block title %}
+    <title>History</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<center>
+    {% if objs %}
+        <h4>You can retrive the data in sorted order </h4>
+        <form method="POST" action="{% url 'submit_form' %}">
+            {% csrf_token %}
+                <input type="radio" id="city" name="option" value="city">
+                <label for="city">City</label>
+                <input type="radio" id="temperature" name="option" value="temperature">
+                <label for="temperature">temperature</label>
+                <input type="radio" id="humidity" name="option" value="humidity">
+                <label for="humidity">humidity</label>
+                <input type="radio" id="weather" name="option" value="weather">
+                <label for="weather">weather</label>
+                <input type="radio" id="speed" name="option" value="speed">
+                <label for="speed">speed</label>
+                <input type="radio" id="timestamp" name="option" value="timestamp">
+                <label for="timestamp">timestamp</label><br>
+                <button type="submit" class="btn btn-primary">Sort Data</button>
+
+        </form>
+        <form action="{% url 'delete_req' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="submit" value="Delete history" class="btn btn-danger">
+
+        </form>
+          
+        <table border="3px" style="margin-top: 10px;">
+            <tr>
+                <th>Sl.No</th>
+                <th>City Name</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Weather</th>
+                <th>speed</th>
+                <th>Time Stamp</th>
+            </tr>
+            {% for obj in objs %}
+                <tr>
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.city}} </td>
+                    <td>{{obj.temperature}} </td>
+                    <td>{{obj.humidity}} </td>
+                    <td>{{obj.weather}} </td>
+                    <td>{{obj.speed}} </td>
+                    <td>{{obj.timestamp}} </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+
+        <center>
+            <h1>No data is entered till now .. </h1>
+            <a href="{% url 'home' %}" class="btn btn-secondary">You can add data when you click me </a>
+        </center>
+        
+    {% endif %}
+</center>
+
+
+{% endblock %}
