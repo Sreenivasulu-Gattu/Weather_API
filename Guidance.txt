@@ -1,0 +1,27 @@
+1. Create a folder and Open that folder with VScode, click on Terminal
+   Install Python by using this command 
+	-->  pip install python
+2. We need to install and create the virtual Environment, So follow these commands..
+	-->  pip install virtualenv
+	-->  virtualenv venv
+	-->  cd venv\Scripts
+	-->  activate
+3. Install the GIT bash for Download the github project, after installation follow the commands.
+	--> git clone https://github.com/Sreenivasulu-Gattu/Weather_API.git
+	--> cd Weather_API
+4. Install the Dependencies
+	--> pip install -r requirements.txt
+5. Run the following commands to apply the migrations and set up the database:
+	--> python manage.py migrate
+6. To create an admin user for the Django admin panel, run:
+	--> python manage.py createsuperuser
+	Now give the details and click "yes"
+7. Run the local server
+	--> python manage.py runserver
+8. You can able to the this,
+	System check identified no issues (0 silenced).
+	Django version 3.2.25, using settings 'WeatherAPI.settings'
+	Starting development server at http://127.0.0.1:8000/
+	Quit the server with CTRL-BREAK.
+
+	Open browser and enter the url --> http://127.0.0.1:8000/
